@@ -1,0 +1,114 @@
+//  Faça um programa com um menu que receba uma opção, e de acordo com a 
+//  opção, efetue uma operação (uma função ou procedimento) conforme abaixo e mostre em 
+//  tela o resultado. O usuário deve poder efetuar quantas operações quiser. 
+//  1 – Adição;
+//  2 – Subtração;
+//  3 – Multiplicação;
+//  4 – Divisão(não permitir divisão por zero);
+//  0 – Sair.
+
+using System;
+
+namespace ex001
+{
+    class Program
+    {
+        
+        static double Somar(double n1, double n2)
+        {
+            double resposta = n1 + n2; 
+            return resposta;
+        }
+        static double Subtração(double n1, double n2)
+        {
+            double resposta = n1 - n2;
+            return resposta;
+        }
+        static double Multiplicação(double n1, double n2)
+        {
+            double resposta = n1 * n2;
+            return resposta;
+        }
+        static double Divisão(double n1, double n2)
+        {
+            double resposta = 0;
+            if (n2 > 0)
+            {
+                resposta = n1 / n2;
+            }
+            else
+            {
+                resposta = 0;
+            }
+            return resposta;
+        }
+        static void Main()
+        {
+            double resposta = 0;
+            int opcao = 1;
+            Console.WriteLine("-=-=-= Calculadora =-=-=-");
+            Console.Write("Digite um número: ");
+            double n1 = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Digite outro número: ");
+            double n2 = Convert.ToInt32(Console.ReadLine());
+            while (opcao != 0)
+            {
+                Console.WriteLine("=================================================");
+                Console.WriteLine("Insira a opcao que deseja: ");
+                Console.WriteLine("[ 1 ] - Adição ");
+                Console.WriteLine("[ 2 ] - Subtração ");
+                Console.WriteLine("[ 3 ] - Multiplicação ");
+                Console.WriteLine("[ 4 ] - Divisão ");
+                Console.WriteLine("[ 0 ] - Sair ");
+                Console.Write("Opção: ");
+                opcao = Convert.ToInt32(Console.ReadLine());
+
+                if (opcao == 1)
+                {
+                    resposta = Somar(n1, n2);
+                    Console.WriteLine("{0} + {1} = {2}", n1, n2, resposta);
+                    Console.WriteLine("=================================================");
+                    Console.WriteLine("Deseja fazer outra opração? ");
+                }
+                else if (opcao == 2)
+                {
+                    resposta = Subtração(n1, n2);
+                    Console.WriteLine("{0} - {1} = {2}", n1, n2, resposta);
+                    Console.WriteLine("=================================================");
+                    Console.WriteLine("Deseja fazer outra opração? ");
+                }
+                else if (opcao == 3)
+                {
+                    resposta = Multiplicação(n1, n2);
+                    Console.WriteLine("{0} * {1} = {2}", n1, n2, resposta);
+                    Console.WriteLine("=================================================");
+                    Console.WriteLine("Deseja fazer outra opração? ");
+                }
+                else if (opcao == 4)
+                {
+                    resposta = Divisão(n1, n2);
+                    Console.WriteLine("{0} / {1} = {2}", n1, n2, resposta);
+                    Console.WriteLine("=================================================");
+                    Console.WriteLine("Deseja fazer outra opração? ");
+                }
+                else if (opcao == 0)
+                {
+                    resposta = Divisão(n1, n2);
+                    Console.WriteLine("Finalizando ...");
+                }
+                else
+                {
+                    Console.WriteLine("Opção invalida!");
+                    Console.WriteLine("=================================================");
+                    Console.WriteLine("Deseja fazer outra opração? ");
+                }
+                
+            }
+            
+            Console.WriteLine("Programa concluído !");
+            
+
+
+        }
+    }
+}
