@@ -1,0 +1,46 @@
+//  Faça um programa que receba um valor e, usando uma função, receba esse valor e retorne e mostre todos os divisores entre 0 e o número
+
+using System;
+
+namespace ex003
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n1;
+            int[] retorno;  // declara o vetor retorno
+
+            Console.Write("Digite um número inteiro: ");
+            n1 = Convert.ToInt32(Console.ReadLine()); // recebe o valor digitado
+            retorno = Divisores(n1); // preenche o vetor 'retorno' usando a função Divisores
+            MostrarValores(retorno); // mostra os divisores dentro de 'retorno' usando a função 'MostrarValores'
+            
+        }
+        static int[] Divisores(int n1)
+        {
+            int[] divisores = new int[n1 + 1]; // declara um vetor 'divisores'
+            for (int i = 1; i < divisores.Length; i = i + 1)
+            {
+                if (n1 % i == 0)
+                {
+                    divisores[i] = i;
+                }
+            }
+            return divisores;
+        }
+        static void MostrarValores(int[] valores)
+        {
+            Console.WriteLine("Mostrando os Divisores: ");
+            for (int i = 0; i < valores.Length; i = i + 1)
+            {
+                if (valores[i] > 0)
+                {
+                    Console.WriteLine(valores[i]);
+                }
+            }
+            
+        }
+        
+    }
+}
