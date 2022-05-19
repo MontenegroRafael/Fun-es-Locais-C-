@@ -1,0 +1,42 @@
+//  Faça uma função que receba em um vetor as notas de 10 alunos e verifique se todos passaram(nota maior que 7).
+//  Deverá ser criada uma função que retorne um array do tipo bool, com os alunos que passaram.
+
+using System;
+
+namespace ex004
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            bool[] retorno;
+            double[] notas = new double[10];
+            for (int i = 0; i < 10; i = i + 1)
+            {
+                Console.Write("Digite a {0}° nota: ", i + 1);
+                notas[i] = Convert.ToDouble(Console.ReadLine());
+            }
+            retorno = Aprovados(notas);
+            for (int i = 0; i < 10; i = i + 1)
+            {
+                if (retorno[i]) // 'retorno[i]' for 'true' então entra no 'if'
+                {
+                    Console.WriteLine("Aluno {0} Aprovado com {1} de nota: ", (i + 1), notas[i]);
+                }
+                
+            }
+        }
+        static bool[] Aprovados(double[] notas)  // retotrno boleano
+        {
+            bool[] aprovados = new bool[notas.Length];
+            for (int i = 0; i < 10; i = i + 1)
+            {
+                if (notas[i] > 7)
+                {
+                    aprovados[i] = true;
+                }
+            }
+            return aprovados;
+        }
+    }
+}
