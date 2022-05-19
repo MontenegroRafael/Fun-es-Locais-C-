@@ -1,0 +1,76 @@
+//  Faça um programa em que o usuário preencha um array de 10 posições
+//  e mostre o maior valor entre eles (usando funções e/ou procedimentos). 
+
+using System;
+
+namespace ex002
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int maior, menor;
+            int[] valores = new int[10];
+            for (int i = 0; i < 10; i = i + 1)
+            {
+                Console.Write("Digite o {0}° valor: ", i + 1);
+                valores[i] = Convert.ToInt32(Console.ReadLine());
+            }
+            Console.WriteLine("================================================");
+            maior = EstudoMaior(valores);
+            Console.WriteLine("O maior valor digitado é {0}", maior);
+            menor = EstudoMenor(valores);
+            Console.WriteLine("O menor valor digitado é {0}", menor);
+            //  MostrarValores(valores);
+        }
+        //static void MostrarValores(int[] valores)
+        //{
+        //    Console.WriteLine("Mostrar Elementos: ");
+        //    for (int i = 0; i < valores.Length; i = i + 1)
+        //    {
+        //        if (valores[i] > 0)
+        //        {
+        //            Console.WriteLine(valores[i]);
+        //        }
+        //    }
+        //}
+        static int EstudoMaior(int[] valores)
+        {
+            int maior = 0;
+            for (int i = 0; i < valores.Length; i = i + 1)
+            {
+                if (i == 0)
+                {
+                    maior = valores[i];
+                }
+                else
+                {
+                    if (valores[i] > maior)
+                    {
+                        maior = valores[i];
+                    }
+                }
+            }
+            return maior; 
+        }
+        static int EstudoMenor(int[] valores)
+        {
+            int menor = 0;
+            for (int i = 0; i < valores.Length; i = i + 1)
+            {
+                if (i == 0)
+                {
+                    menor = valores[i];
+                }
+                else
+                {
+                    if (valores[i] < menor)
+                    {
+                        menor = valores[i];
+                    }
+                }
+            }
+            return menor;
+        }
+    }
+}
